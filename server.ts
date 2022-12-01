@@ -38,7 +38,7 @@ if (cluster.isPrimary) {
 else {
     (async () => {
         const app = express();
-        // console.log(`Worker ${process.pid} started`);
+        console.log(`Worker ${process.pid} started`);
 
         app.use(cors({ origin: "*" }));
         app.use(express.urlencoded({ extended: true }));
