@@ -1,0 +1,329 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Shared Ecommerce Api Documentation",
+        "description": "Shared Ecommerce Api Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "App",
+            "description": "App Module"
+        }
+    ],
+    "paths": {
+        "/App/read/csv/books": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Read Books Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/read/csv/magazines": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Read Magazines Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/read/csv/authors": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Read Authors Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/book/isbn": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Find Book by ISBN Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_isbn"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/book/email": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Find Book by email Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_email"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/magazine/isbn": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Find Book by ISBN Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_isbn"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/magazine/email": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Find Book by email Api",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/find_by_email"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/books/magazine/sort": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Sort books and magazine by title Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/books": {
+            "post": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Add books Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_books"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/magazines": {
+            "post": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Add magazines Api",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_magazines"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/export/books": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Export Books Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/App/export/magazine": {
+            "get": {
+                "tags": [
+                    "App"
+                ],
+                "summary": "Export Magazine Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "add_books": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "isbn": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "authors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "isbn",
+                    "authors",
+                    "description"
+                ]
+            },
+            "add_magazines": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "isbn": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "authors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "publishedAt": {
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "isbn",
+                    "authors",
+                    "publishedAt"
+                ]
+            }
+        },
+        "parameters": {
+            "pagination": {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                }
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "schema": {
+                    "type": "number"
+                }
+            },
+            "find_by_isbn": {
+                "name": "isbn",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "find_by_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "access_token": {
+                "name": "access_token",
+                "in": "query",
+                "description": "access_token to be passed as a header",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            }
+        },
+        "securitySchemes": {
+            "token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "inputs": [
+        {
+            "inputFile": "./src/app/app.openapi.json"
+        }
+    ],
+    "output": "./output.openapi.json"
+}

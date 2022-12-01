@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "declaration": true,
+        "target": "es6",
+        "sourceMap": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "build",
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/tupes"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
